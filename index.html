@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>1Fin s.r.o. | Finanční a pojišťovací poradenství</title>
+  <meta
+    name="description"
+    content="1Fin s.r.o. – váš dlouhodobý partner v oblasti financí, pojištění a osobního finančního plánování."
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="1Fin s.r.o.">
+        <span class="brand-mark">1F</span>
+        <span class="brand-text">1Fin s.r.o.</span>
+      </a>
+
+      <nav class="nav" aria-label="Hlavní navigace">
+        <a href="#about" data-i18n="navAbout">O nás</a>
+        <a href="#services" data-i18n="navServices">Služby</a>
+        <a href="#price" data-i18n="navPrice">Cena</a>
+        <a href="#contact" data-i18n="navContact">Kontakt</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="language-select-wrap">
+          <label for="language-select" data-i18n="languageLabel">Jazyk:</label>
+
+          <select id="language-select" class="language-select">
+            <option value="cs">🇨🇿 Čeština</option>
+            <option value="en">🇬🇧 English</option>
+          </select>
+        </div>
+
+        <a
+          href="https://pojisteni.1fin.cz/"
+          class="btn btn-small btn-primary"
+          target="_blank"
+          rel="noopener"
+          data-i18n="formShort"
+        >
+          Formulář
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="badge" data-i18n="heroBadge">Finanční a pojišťovací poradenství</p>
+
+          <h1 data-i18n="heroTitle">Váš dlouhodobý partner v oblasti financí</h1>
+
+          <p class="hero-text" data-i18n="heroText">
+            Pomáháme klientům lépe se orientovat ve financích, pojištění
+            a dlouhodobém plánování. Ať už řešíte cestovní pojištění,
+            audit osobních financí, nebo větší finanční cíle.
+          </p>
+
+          <div class="hero-actions">
+            <a href="tel:+420777061655" class="btn btn-light" data-i18n="phoneButton">
+              ☎ +420 777 061 655
+            </a>
+            <a
+              href="https://pojisteni.1fin.cz/"
+              class="btn btn-outline"
+              target="_blank"
+              rel="noopener"
+              data-i18n="formButton"
+            >
+              Vyplnit formulář
+            </a>
+          </div>
+
+          <div class="hero-stats" aria-label="Hlavní výhody">
+            <div>
+              <strong>20+</strong>
+              <span data-i18n="statExperience">let zkušeností</span>
+            </div>
+
+            <div>
+              <strong>CZ / EN</strong>
+              <span data-i18n="statLanguages">komunikace v češtině i angličtině</span>
+            </div>
+
+            <div>
+              <strong data-i18n="statFreeTitle">Bezplatné</strong>
+              <span data-i18n="statFreeText">z pohledu klienta</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="advisor-preview">
+            <div class="image-placeholder">
+              <span data-i18n="photoPlaceholder">Prostor pro fotku</span>
+            </div>
+
+            <div class="advisor-preview-card">
+              <strong>Mgr. Antonín Hamřík</strong>
+              <span>1Fin s.r.o.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container split">
+        <div>
+          <p class="section-label" data-i18n="aboutLabel">Kdo jsme</p>
+          <h2>1Fin s.r.o.</h2>
+        </div>
+
+        <div class="section-text">
+          <p data-i18n="aboutText1">
+            Jsme váš dlouhodobý partner v oblasti financí, se kterým si
+            splníte své cíle. Naší rolí je pomoci Vám najít vhodné řešení
+            podle vaší aktuální situace a plánů do budoucna.
+          </p>
+          <p data-i18n="aboutText2">
+            Zakládáme si na srozumitelné komunikaci, individuálním přístupu
+            a dlouhodobé spolupráci. Komunikujeme v češtině,
+            ale nebojíme se ani angličtiny.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section-muted">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label" data-i18n="servicesLabel">S čím pomáháme</p>
+          <h2 data-i18n="servicesTitle">Finanční služby přehledně</h2>
+          <p data-i18n="servicesIntro">
+            Od jednoduchého pojištění až po komplexnější finanční plánování.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <span class="card-icon">✈️</span>
+            <h3 data-i18n="serviceTravelTitle">Cestovní pojištění</h3>
+            <p data-i18n="serviceTravelText">
+              Pomůžeme Vám sjednat vhodné cestovní pojištění podle vašich
+              potřeb a typu cesty.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-icon">📊</span>
+            <h3 data-i18n="serviceAuditTitle">Audit osobních financí</h3>
+            <p data-i18n="serviceAuditText">
+              Podíváme se na Vaši aktuální finanční situaci a navrhneme
+              možné kroky ke zlepšení.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-icon">🏠</span>
+            <h3 data-i18n="servicePropertyTitle">Pojištění majetku a odpovědnosti</h3>
+            <p data-i18n="servicePropertyText">
+              Pomůžeme Vám nastavit ochranu domácnosti, nemovitosti nebo
+              odpovědnosti.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-icon">💰</span>
+            <h3 data-i18n="serviceGoalsTitle">Dlouhodobé finanční cíle</h3>
+            <p data-i18n="serviceGoalsText">
+              Pokud máte ambici budovat majetek, nebo pokud chcete plánovat budoucnost,
+              pomůžeme Vám najít vhodnou cestu.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section">
+      <div class="container split">
+        <div>
+          <p class="section-label light" data-i18n="visionLabel">Naše vize</p>
+          <h2 data-i18n="visionTitle">Chytrá řešení pro vaše finanční cíle</h2>
+        </div>
+
+        <div class="section-text light-text">
+          <p data-i18n="visionText1">
+            Ať už chcete pouze sjednat cestovní pojištění, provést audit
+            osobní finanční situace, nebo máte ambici stát se milionářem,
+            pomůžeme vám tohoto cíle dosáhnout.
+          </p>
+          <p data-i18n="visionText2">
+            Zkoumáme za vás novinky a chytrá řešení, která nabízíme v oblasti
+            financí, pojištění a dlouhodobého plánování.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="price" class="section">
+      <div class="container price-box">
+        <div>
+          <p class="section-label" data-i18n="priceLabel">Kolik to stojí</p>
+          <h2 data-i18n="priceTitle">Naše služby jsou z pohledu klienta bezplatné</h2>
+        </div>
+
+        <p data-i18n="priceText">
+          Naše služby jsou placeny z provizí, které nám vyplácí finanční
+          instituce za zprostředkované obchody. Platíte tedy pouze za produkty,
+          které od nás chcete využít.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-muted">
+      <div class="container contact-grid">
+        <div>
+          <p class="section-label" data-i18n="contactLabel">Kontakt</p>
+          <h2 data-i18n="contactTitle">Ozvěte se nám</h2>
+          <p data-i18n="contactText">
+            Máte zájem o konzultaci nebo chcete začít vyplněním dotazníku?
+            Kontaktujte nás nebo pokračujte na externí formulář.
+          </p>
+
+          <div class="contact-actions">
+            <a href="tel:+420777061655" class="btn btn-primary" data-i18n="phoneButton">
+              ☎ +420 777 061 655
+            </a>
+            <a
+              href="https://pojisteni.1fin.cz/"
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener"
+              data-i18n="formButton"
+            >
+              Vyplnit formulář
+            </a>
+          </div>
+        </div>
+
+        <address class="contact-card">
+          <div class="contact-photo-placeholder">
+            <span data-i18n="photoShort">Foto</span>
+          </div>
+
+          <div class="contact-info">
+            <strong>Mgr. Antonín Hamřík</strong>
+
+            <span>1Fin s.r.o.</span>
+            <span>Chodská 1331/32</span>
+            <span>Praha 2 – Vinohrady 120 00</span>
+
+            <a href="mailto:hamrik@financnirust.cz">
+              hamrik@financnirust.cz
+            </a>
+
+            <a href="tel:+420777061655">
+              +420 777 061 655
+            </a>
+          </div>
+        </address>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footerText">© 2026 1Fin s.r.o. Všechna práva vyhrazena.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
