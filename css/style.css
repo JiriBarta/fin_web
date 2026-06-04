@@ -596,60 +596,156 @@ h3 {
 
 @media (max-width: 680px) {
   .container {
-    width: min(100% - 28px, var(--container));
+    width: min(100% - 32px, var(--container));
+  }
+
+  .site-header {
+    position: static;
+  }
+
+  .header-inner {
+    min-height: 0;
+    gap: 12px;
+    padding: 12px 0 14px;
   }
 
   .hero {
-    padding: 56px 0 64px;
+    padding: 42px 0 48px;
+  }
+
+  .hero-grid {
+    text-align: left;
   }
 
   .section {
-    padding: 64px 0;
+    padding: 52px 0;
   }
 
   .header-actions {
     width: 100%;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
   }
 
   .nav {
+    order: 3;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     justify-content: flex-start;
-    gap: 4px;
+    gap: 6px;
   }
 
   .nav a {
-    padding: 8px 10px;
-    font-size: 14px;
+    min-height: 38px;
+    padding: 8px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #f5f7fb;
+    font-size: 13px;
+    text-align: center;
   }
 
   h1 {
-    font-size: 38px;
+    font-size: 32px;
     letter-spacing: 0;
   }
 
   h2 {
-    font-size: 32px;
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 19px;
   }
 
   .hero-text {
-    font-size: 18px;
+    margin-bottom: 26px;
+    font-size: 16px;
+  }
+
+  .badge {
+    margin: 0 0 18px;
+    font-size: 12px;
+  }
+
+  .hero-actions {
+    margin-bottom: 32px;
+    gap: 10px;
   }
 
   .hero-stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding-top: 22px;
+  }
+
+  .hero-stats strong {
+    font-size: 20px;
+  }
+
+  .hero-stats span {
+    font-size: 12px;
   }
 
   .hero-actions .btn {
     width: 100%;
   }
 
+  .split,
+  .advisor-grid {
+    gap: 28px;
+  }
+
+  .section-text,
+  .section-heading p {
+    font-size: 16px;
+  }
+
+  .section-heading {
+    margin-bottom: 26px;
+  }
+
   .cards-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    min-height: auto;
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+    border-radius: 14px;
+    font-size: 24px;
+  }
+
+  .card p {
+    margin-bottom: 18px;
+    font-size: 15px;
+  }
+
+  .card-button {
+    min-height: 46px;
+    padding: 12px 14px;
   }
 
   .price-box {
-    padding: 28px;
+    gap: 18px;
+    padding: 22px;
+    border-radius: 20px;
+  }
+
+  .price-box p:last-child {
+    font-size: 16px;
   }
 
   .footer-inner {
@@ -664,13 +760,25 @@ h3 {
   }
 
   .language-select-wrap {
-    width: 100%;
-    justify-content: space-between;
+    min-width: 0;
+  }
+
+  .language-select-wrap label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
   }
 
   .language-select {
-    flex: 1;
+    width: 100%;
     min-width: 0;
+    min-height: 42px;
+    padding-left: 12px;
+    padding-right: 32px;
+    font-size: 14px;
   }
 
   .advisor-grid {
@@ -679,12 +787,12 @@ h3 {
 
   .advisor-image-card {
     min-height: auto;
-    border-radius: 20px;
+    border-radius: 18px;
   }
 
   .advisor-image {
     min-height: 0;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 3;
   }
 
   .advisor-badge {
@@ -694,16 +802,37 @@ h3 {
   }
 
   .advisor-text {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .advisor-benefit {
     grid-template-columns: 40px 1fr;
     padding: 14px;
+    border-radius: 14px;
+    font-size: 14px;
   }
 
   .advisor-benefit-icon {
     width: 40px;
     height: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hero-stats div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .hero-stats span {
+    max-width: 150px;
+    text-align: right;
   }
 }
