@@ -13,10 +13,10 @@ const translations = {
     formShort: "Formulář",
 
     heroBadge: "Finanční a pojišťovací poradenství",
-    heroTitle: "Váš dlouhodobý partner v oblasti financí",
+    heroTitle: "Váš dlouhodobý partner ve světě financí",
     heroText:
-      "Pomáháme klientům lépe se orientovat ve financích, pojištění a dlouhodobém plánování. Ať už řešíte cestovní pojištění, audit osobních financí, nebo větší finanční cíle.",
-    contactButton: "Kontakt",
+      "Pomáháme jednotlivcům, rodinám i firmám dělat správná finanční rozhodnutí a dlouhodobě chránit i zhodnocovat jejich majetek. Ať už řešíte pojištění, pojistnou událost, penzijní spoření, DIP, hypotéku nebo komplexní finanční plán, jsme tu pro vás s osobním přístupem a odborným poradenstvím.",
+    heroServiceButton: "Vybrat službu",
     formButton: "Vyplnit formulář",
 
     statExperience: "let zkušeností",
@@ -24,57 +24,88 @@ const translations = {
     statFreeTitle: "Bezplatné",
     statFreeText: "z pohledu klienta",
 
-    photoPlaceholder: "Prostor pro fotku",
-    photoShort: "Foto",
-
     aboutLabel: "Kdo jsme",
     aboutText1:
-      "Jsme váš dlouhodobý partner v oblasti financí, se kterým si splníte své cíle. Naší rolí je pomoci Vám najít vhodné řešení podle vaší aktuální situace a plánů do budoucna.",
+      "Jsme nezávislí finanční poradci a dlouhodobí partneři našich klientů. Pomáháme jednotlivcům, rodinám i firmám orientovat se ve světě financí a nacházet řešení, která odpovídají jejich aktuální situaci i budoucím plánům.",
     aboutText2:
-      "Zakládáme si na srozumitelné komunikaci, individuálním přístupu a dlouhodobé spolupráci. Komunikujeme v češtině, ale nebojíme se ani angličtiny.",
+      "Naším cílem není jednorázový obchod, ale dlouhodobá spolupráce založená na důvěře, odbornosti a osobním přístupu. Poskytujeme poradenství v oblasti pojištění, investic, penzijního spoření, DIP, hypoték i komplexního finančního plánování.",
+    aboutText3:
+      "Zakládáme si na srozumitelné komunikaci, transparentních doporučeních a dostupném servisu. Ke každému klientovi přistupujeme individuálně a hledáme řešení, která dávají smysl nejen dnes, ale i v dlouhodobém horizontu.",
+    aboutText4:
+      "Komunikujeme v češtině i angličtině a jsme připraveni pomoci klientům v České republice i v zahraničí.",
 
     servicesLabel: "S čím pomáháme",
     servicesTitle: "Finanční služby přehledně",
     servicesIntro:
-      "Od jednoduchého pojištění až po komplexnější finanční plánování.",
+      "Od jednoduchého pojištění až po komplexní finanční plánování. Pomáháme klientům chránit majetek, budovat finanční rezervy a dosahovat dlouhodobých finančních cílů.",
 
     serviceTravelTitle: "Cestovní pojištění",
     serviceTravelText:
-      "Pomůžeme Vám sjednat vhodné cestovní pojištění podle vašich potřeb a typu cesty.",
-
-    serviceAuditTitle: "Audit osobních financí",
-    serviceAuditText:
-      "Podíváme se na Vaši aktuální finanční situaci a navrhneme možné kroky ke zlepšení.",
+      "Zajistíme vhodné cestovní pojištění pro dovolenou, pracovní cestu i dlouhodobý pobyt v zahraničí.",
+    serviceTravelButton: "Sjednat cestovní pojištění",
 
     servicePropertyTitle: "Pojištění majetku a odpovědnosti",
     servicePropertyText:
-      "Pomůžeme Vám nastavit ochranu domácnosti, nemovitosti nebo odpovědnosti.",
+      "Pomůžeme nastavit ochranu domácnosti, nemovitosti, odpovědnosti i dalších rizik, která mohou ovlivnit váš majetek.",
 
-    serviceGoalsTitle: "Dlouhodobé finanční cíle",
-    serviceGoalsText:
-      "Pokud máte ambici budovat majetek, nebo pokud chcete plánovat budoucnost, pomůžeme Vám najít vhodnou cestu.",
+    serviceBusinessTitle: "Pojištění podnikatelů a firem",
+    serviceBusinessText:
+      "Pomáháme živnostníkům, freelancerům i firmám do 100 zaměstnanců chránit jejich podnikání. Zajistíme pojištění majetku, odpovědnosti, vozidel, strojů, přerušení provozu i zaměstnaneckých benefitů. Navrhneme řešení odpovídající velikosti firmy, oboru podnikání i konkrétním rizikům.",
+
+    serviceLifeTitle: "Životní a úrazové pojištění",
+    serviceLifeText:
+      "Navrhneme řešení pro ochranu příjmu, rodiny i finanční stability v případě neočekávaných životních situací.",
+
+    serviceInvestmentsTitle: "Investice, DIP a tvorba majetku",
+    serviceInvestmentsText:
+      "Pomáháme klientům efektivně investovat, využívat daňové výhody Dlouhodobého investičního produktu (DIP) a budovat majetek pro budoucnost.",
+
+    servicePensionTitle: "Penzijní spoření",
+    servicePensionText:
+      "Poradíme s nastavením penzijního spoření tak, abyste maximálně využili státní podporu i příspěvky zaměstnavatele.",
+    servicePensionButton: "Sjednat penzijní spoření",
+
+    serviceMortgageTitle: "Hypotéky a financování bydlení",
+    serviceMortgageText:
+      "Pomůžeme s výběrem hypotéky, refinancováním i financováním vlastního bydlení nebo investiční nemovitosti.",
+
+    serviceAuditTitle: "Audit osobních financí",
+    serviceAuditText:
+      "Zmapujeme vaši současnou situaci, odhalíme rezervy a navrhneme konkrétní kroky ke zlepšení.",
+
+    servicePlanningTitle: "Komplexní finanční plánování",
+    servicePlanningText:
+      "Propojíme pojištění, investice, penzi i financování do jednoho dlouhodobého plánu, který odpovídá vašim životním cílům.",
+
+    serviceFormButton: "Vyplnit formulář",
+    serviceMoreInfoButton: "Zjistit více",
+    serviceLearnMoreButton: "Zjistit více",
 
     visionLabel: "Naše vize",
     visionTitle: "Chytrá řešení pro vaše finanční cíle",
     visionText1:
-      "Ať už chcete pouze sjednat cestovní pojištění, provést audit osobní finanční situace, nebo máte ambici stát se milionářem, pomůžeme vám tohoto cíle dosáhnout.",
+      "Každý klient má jiné potřeby a jiné cíle. Někdo potřebuje kvalitní pojištění, jiný řeší vlastní bydlení, zajištění na důchod nebo budování majetku. Naším cílem je najít řešení, které bude fungovat nejen dnes, ale i za deset či dvacet let.",
     visionText2:
-      "Zkoumáme za vás novinky a chytrá řešení, která nabízíme v oblasti financí, pojištění a dlouhodobého plánování.",
+      "Sledujeme za vás novinky na finančním trhu, porovnáváme nabídky a vybíráme řešení, která dávají smysl. Díky tomu můžete dělat informovaná rozhodnutí a soustředit se na to, co je pro vás skutečně důležité.",
+    visionText3: "Vaše finanční cíle jsou naším závazkem.",
 
     priceLabel: "Kolik to stojí",
     priceTitle: "Naše služby jsou z pohledu klienta bezplatné",
     priceText:
       "Naše služby jsou placeny z provizí, které nám vyplácí finanční instituce za zprostředkované obchody. Platíte tedy pouze za produkty, které od nás chcete využít.",
 
-    contactLabel: "Kontakt",
-    contactTitle: "Ozvěte se nám",
+    contactLabel: "O poradci",
+    contactTitle: "Odborné vedení, na které se můžete spolehnout",
     contactText:
-      "Máte zájem o konzultaci nebo chcete začít vyplněním formuláře? Kontaktujte nás nebo pokračujte na externí formulář.",
-    emailButton: "Napsat e-mail",
+      "Jmenuji se Antonín Hamřík a ve financích a pojištění se pohybuji více než 20 let. Pomáhám klientům najít srozumitelná řešení podle jejich aktuální situace, plánů a dlouhodobých cílů.",
+    contactText2:
+      "Díky zkušenostem z oblasti pojištění a financí dokážu klientům pomoci jak s jednoduchým sjednáním služby, tak i s širším pohledem na jejich finanční situaci.",
+    advisorBadge: "20+ let zkušeností",
+    advisorBenefitFees: "Bez přímých poplatků z pohledu klienta",
+    advisorBenefitLanguages: "Komunikace v češtině i angličtině",
+    advisorBenefitIndividual: "Individuální přístup podle situace klienta",
 
     footerText: "© 2026 1Fin s.r.o. Všechna práva vyhrazena.",
-    
-    phoneButton: "☎ +420 777 061 655",
   },
 
   en: {
@@ -91,10 +122,10 @@ const translations = {
     formShort: "Form",
 
     heroBadge: "Financial and insurance advisory",
-    heroTitle: "Your long-term partner in finance",
+    heroTitle: "Your long-term partner in the world of finance",
     heroText:
-      "We help clients navigate finance, insurance and long-term planning. Whether you need travel insurance, a personal finance review, or support with larger financial goals.",
-    contactButton: "Contact",
+      "We help individuals, families and businesses make sound financial decisions while protecting and growing their wealth over the long term. Whether you need insurance, support with an insurance claim, pension savings, DIP, a mortgage or a comprehensive financial plan, we are here with a personal approach and expert advice.",
+    heroServiceButton: "Choose a service",
     formButton: "Fill in the form",
 
     statExperience: "years of experience",
@@ -102,57 +133,88 @@ const translations = {
     statFreeTitle: "Free",
     statFreeText: "from the client’s perspective",
 
-    photoPlaceholder: "Photo placeholder",
-    photoShort: "Photo",
-
     aboutLabel: "About us",
     aboutText1:
-      "We are your long-term partner in finance, helping you reach your goals. Our role is to help you find suitable solutions based on your current situation and future plans.",
+      "We are independent financial advisors and long-term partners to our clients. We help individuals, families and businesses navigate the world of finance and find solutions that fit both their current situation and future plans.",
     aboutText2:
-      "We focus on clear communication, an individual approach and long-term cooperation. We communicate in Czech, but we are also comfortable using English.",
+      "Our goal is not a one-off transaction, but long-term cooperation built on trust, expertise and a personal approach. We provide advice in insurance, investments, pension savings, DIP, mortgages and comprehensive financial planning.",
+    aboutText3:
+      "We value clear communication, transparent recommendations and accessible service. We approach every client individually and look for solutions that make sense not only today, but also over the long term.",
+    aboutText4:
+      "We communicate in Czech and English and are ready to help clients in the Czech Republic and abroad.",
 
     servicesLabel: "How we can help",
     servicesTitle: "Financial services made clear",
     servicesIntro:
-      "From simple insurance products to more complex financial planning.",
+      "From simple insurance to comprehensive financial planning. We help clients protect their assets, build financial reserves and achieve long-term financial goals.",
 
     serviceTravelTitle: "Travel insurance",
     serviceTravelText:
-      "We help you arrange suitable travel insurance based on your needs and the type of trip.",
-
-    serviceAuditTitle: "Personal finance review",
-    serviceAuditText:
-      "We look at your current financial situation and suggest possible steps for improvement.",
+      "We arrange suitable travel insurance for holidays, business trips and long-term stays abroad.",
+    serviceTravelButton: "Arrange travel insurance",
 
     servicePropertyTitle: "Property and liability insurance",
     servicePropertyText:
-      "We help you set up protection for your home, property or personal liability.",
+      "We help set up protection for your household, property, liability and other risks that may affect your assets.",
 
-    serviceGoalsTitle: "Long-term financial goals",
-    serviceGoalsText:
-      "If you want to build wealth or plan your future, we help you find a suitable path.",
+    serviceBusinessTitle: "Insurance for entrepreneurs and companies",
+    serviceBusinessText:
+      "We help sole traders, freelancers and companies with up to 100 employees protect their business. We arrange insurance for property, liability, vehicles, machinery, business interruption and employee benefits. We design solutions that match the size of the company, its field of business and its specific risks.",
+
+    serviceLifeTitle: "Life and accident insurance",
+    serviceLifeText:
+      "We design solutions to protect income, family and financial stability in unexpected life situations.",
+
+    serviceInvestmentsTitle: "Investments, DIP and wealth building",
+    serviceInvestmentsText:
+      "We help clients invest effectively, use the tax advantages of the Long-Term Investment Product (DIP) and build wealth for the future.",
+
+    servicePensionTitle: "Pension savings",
+    servicePensionText:
+      "We advise on setting up pension savings so you can make the most of state support and employer contributions.",
+    servicePensionButton: "Arrange pension savings",
+
+    serviceMortgageTitle: "Mortgages and home financing",
+    serviceMortgageText:
+      "We help with choosing a mortgage, refinancing and financing your own home or an investment property.",
+
+    serviceAuditTitle: "Personal finance review",
+    serviceAuditText:
+      "We map your current situation, identify reserves and propose concrete steps for improvement.",
+
+    servicePlanningTitle: "Comprehensive financial planning",
+    servicePlanningText:
+      "We connect insurance, investments, pension savings and financing into one long-term plan aligned with your life goals.",
+
+    serviceFormButton: "Fill in the form",
+    serviceMoreInfoButton: "Learn more",
+    serviceLearnMoreButton: "Learn more",
 
     visionLabel: "Our vision",
     visionTitle: "Smart solutions for your financial goals",
     visionText1:
-      "Whether you simply want to arrange travel insurance, review your personal financial situation, or have the ambition to become a millionaire, we help you move towards that goal.",
+      "Every client has different needs and different goals. Some need quality insurance, others are dealing with housing, retirement security or building wealth. Our goal is to find a solution that works not only today, but also in ten or twenty years.",
     visionText2:
-      "We monitor new opportunities and smart solutions in finance, insurance and long-term planning, so we can offer them to our clients in a clear and useful way.",
+      "We monitor financial market developments for you, compare offers and select solutions that make sense. This helps you make informed decisions and focus on what truly matters to you.",
+    visionText3: "Your financial goals are our commitment.",
 
     priceLabel: "Pricing",
     priceTitle: "Our services are free from the client’s perspective",
     priceText:
       "Our services are paid through commissions from financial institutions for mediated transactions. You only pay for the products you choose to use through us.",
 
-    contactLabel: "Contact",
-    contactTitle: "Get in touch",
+    contactLabel: "About your advisor",
+    contactTitle: "Expert guidance you can rely on",
     contactText:
-      "Interested in a consultation or want to start by filling in the form? Contact us or continue to the external form.",
-    emailButton: "Send an e-mail",
+      "My name is Antonín Hamřík and I have more than 20 years of experience in finance and insurance. I help clients find clear solutions based on their current situation, plans and long-term goals.",
+    contactText2:
+      "Thanks to my experience in insurance and finance, I can help with both simple service arrangements and a broader view of personal financial planning.",
+    advisorBadge: "20+ years of experience",
+    advisorBenefitFees: "No direct fees from the client’s perspective",
+    advisorBenefitLanguages: "Communication in Czech and English",
+    advisorBenefitIndividual: "Individual approach based on the client’s situation",
 
     footerText: "© 2026 1Fin s.r.o. All rights reserved.",
-
-    phoneButton: "☎ +420 777 061 655",
   },
 };
 
