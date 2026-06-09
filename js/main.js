@@ -44,6 +44,10 @@ const translations = {
       "Zajistíme vhodné cestovní pojištění pro dovolenou, pracovní cestu i dlouhodobý pobyt v zahraničí.",
     serviceTravelButton: "Sjednat cestovní pojištění",
 
+    serviceTenantTitle: "Nejlepší pojištění nájemníků",
+    serviceTenantText:
+      "Řada pojišťoven má ve výluce poškození majetku pronajímatele nebo omezení na poškození nemovitosti či vybraných rizik. Připravíme vám pojištění, které nejlépe kryje nájemníky a tím i majitele.",
+
     servicePropertyTitle: "Pojištění majetku a odpovědnosti",
     servicePropertyText:
       "Pomůžeme nastavit ochranu domácnosti, nemovitosti, odpovědnosti i dalších rizik, která mohou ovlivnit váš majetek.",
@@ -152,6 +156,10 @@ const translations = {
     serviceTravelText:
       "We arrange suitable travel insurance for holidays, business trips and long-term stays abroad.",
     serviceTravelButton: "Arrange travel insurance",
+
+    serviceTenantTitle: "Tenant insurance",
+    serviceTenantText:
+      "Many insurers exclude damage to the landlord’s property or limit coverage for damage to the property or selected risks. We prepare insurance that best protects tenants and, as a result, also landlords.",
 
     servicePropertyTitle: "Property and liability insurance",
     servicePropertyText:
