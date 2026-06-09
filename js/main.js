@@ -157,7 +157,7 @@ const translations = {
       "We arrange suitable travel insurance for holidays, business trips and long-term stays abroad.",
     serviceTravelButton: "Arrange travel insurance",
 
-    serviceTenantTitle: "Tenant insurance",
+    serviceTenantTitle: "Best tenant insurance",
     serviceTenantText:
       "Many insurers exclude damage to the landlord’s property or limit coverage for damage to the property or selected risks. We prepare insurance that best protects tenants and, as a result, also landlords.",
 
