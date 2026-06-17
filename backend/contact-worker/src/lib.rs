@@ -276,12 +276,11 @@ fn parse_urlencoded_form(body: &str) -> Result<ContactForm> {
     let last_name = required_single(&values, "last_name")?;
     let email = required_single(&values, "email")?;
     let phone = required_single(&values, "phone")?;
-    let turnstile_token =
-        match optional_single(&values, "turnstile_token")? {
-            Some(value) => value,
-            None => optional_single(&values, "cf-turnstile-response")?
-                .ok_or_else(|| Error::RustError("Missing Turnstile token.".into()))?,
-        };
+    let turnstile_token = match optional_single(&values, "turnstile_token")? {
+        Some(value) => value,
+        None => optional_single(&values, "cf-turnstile-response")?
+            .ok_or_else(|| Error::RustError("Missing Turnstile token.".into()))?,
+    };
 
     Ok(ContactForm {
         first_name,
@@ -479,20 +478,29 @@ fn validate_origin(origin: &str, env: &Env) -> Result<String> {
     let allowed_raw = get_secret(env, "ALLOWED_ORIGINS")
         .ok_or_else(|| Error::RustError("Missing allowed origins configuration.".into()))?;
 
-    let allowed_origins: Vec<&str> = allowed_raw
-        .split(',')
-        .map(|origin| origin.trim())
-        .filter(|origin| !origin.is_empty())
-        .collect();
+    let allowed_origins = parse_allowed_origins(&allowed_raw);
+    log_origin_check(origin, &allowed_origins, env);
 
-    if allowed_origins
-        .iter()
-        .any(|allowed| allowed.eq_ignore_ascii_case(origin.trim()))
-    {
+    if allowed_origins.iter().any(|allowed| allowed == origin) {
         Ok(origin.to_string())
     } else {
         Err(Error::RustError("Origin not allowed.".into()))
     }
+}
+
+fn parse_allowed_origins(raw: &str) -> Vec<String> {
+    raw.split(',')
+        .map(clean_origin_entry)
+        .filter(|origin| !origin.is_empty())
+        .collect()
+}
+
+fn clean_origin_entry(origin: &str) -> String {
+    origin
+        .trim()
+        .trim_matches(|value| value == '"' || value == '\'')
+        .trim()
+        .to_string()
 }
 
 fn preflight_response(cors_origin: &str) -> Result<Response> {
@@ -565,6 +573,21 @@ fn log_backend_error(code: &'static str, detail: &str, env: &Env) {
     );
 }
 
+fn log_origin_check(origin: &str, allowed_origins: &[String], env: &Env) {
+    console_log!(
+        "{}",
+        json!({
+            "level": "info",
+            "component": "contact-worker",
+            "environment": if is_development(env) { "development" } else { "production" },
+            "code": "cors_origin_check",
+            "incoming_origin": origin,
+            "parsed_allowed_origins": allowed_origins,
+        })
+        .to_string()
+    );
+}
+
 async fn send_email(
     recipient: &str,
     from_address: &str,
@@ -574,8 +597,19 @@ async fn send_email(
     env: &Env,
     cors_origin: &str,
 ) -> Result<Response> {
-    let resend_api_key = get_secret(env, "RESEND_API_KEY")
-        .ok_or_else(|| Error::RustError("Missing Resend API key.".into()))?;
+    let resend_api_key = match get_resend_api_key(env) {
+        ResendApiKeyConfig::Ready(key) => key,
+        ResendApiKeyConfig::Missing => {
+            log_resend_request_config(false, 0, false, env);
+            log_backend_error("missing_resend_api_key", "Missing Resend API key.", env);
+            return error_response("missing_resend_api_key", 500, Some(cors_origin), env);
+        }
+        ResendApiKeyConfig::Empty => {
+            log_resend_request_config(true, 0, false, env);
+            log_backend_error("empty_resend_api_key", "Resend API key was empty.", env);
+            return error_response("empty_resend_api_key", 500, Some(cors_origin), env);
+        }
+    };
 
     let payload = json!({
         "from": from_address,
@@ -586,8 +620,9 @@ async fn send_email(
     });
 
     let headers = Headers::new();
-    headers.set("Authorization", &format!("Bearer {}", resend_api_key))?;
+    headers.set("Authorization", &format!("Bearer {resend_api_key}"))?;
     headers.set("Content-Type", "application/json")?;
+    log_resend_request_config(true, resend_api_key.len(), true, env);
 
     let request = Request::new_with_init(
         RESEND_API_URL,
@@ -617,6 +652,58 @@ async fn send_email(
     let mut response = Response::from_json(&body)?.with_status(200);
     add_cors_headers(&mut response, cors_origin)?;
     Ok(response)
+}
+
+enum ResendApiKeyConfig {
+    Ready(String),
+    Missing,
+    Empty,
+}
+
+fn get_resend_api_key(env: &Env) -> ResendApiKeyConfig {
+    match env.secret("RESEND_API_KEY") {
+        Ok(secret) => {
+            let key = clean_secret_value(&secret.to_string());
+            if key.is_empty() {
+                ResendApiKeyConfig::Empty
+            } else {
+                ResendApiKeyConfig::Ready(key)
+            }
+        }
+        Err(_) => ResendApiKeyConfig::Missing,
+    }
+}
+
+fn clean_secret_value(value: &str) -> String {
+    value
+        .trim()
+        .trim_matches(|character| {
+            character == '"' || character == '\'' || character == '<' || character == '>'
+        })
+        .trim()
+        .to_string()
+}
+
+fn log_resend_request_config(
+    resend_api_key_exists: bool,
+    resend_api_key_length: usize,
+    authorization_header_added: bool,
+    env: &Env,
+) {
+    console_log!(
+        "{}",
+        json!({
+            "level": "info",
+            "component": "contact-worker",
+            "environment": if is_development(env) { "development" } else { "production" },
+            "code": "resend_request_config",
+            "resend_api_key_exists": resend_api_key_exists,
+            "resend_api_key_length": resend_api_key_length,
+            "authorization_header_added": authorization_header_added,
+            "resend_endpoint": RESEND_API_URL,
+        })
+        .to_string()
+    );
 }
 
 fn build_email_html(
@@ -687,5 +774,39 @@ mod tests {
         assert!(!validate_phone(""));
         assert!(!validate_phone(&"1".repeat(MAX_PHONE_LENGTH + 1)));
         assert!(!validate_phone("123<456"));
+    }
+
+    #[test]
+    fn allowed_origins_parser_splits_trims_quotes_and_ignores_empty_entries() {
+        assert_eq!(
+            parse_allowed_origins(r#" "https://jiribarta.github.io" , , 'https://www.1fin.cz' ,"#),
+            vec![
+                "https://jiribarta.github.io".to_string(),
+                "https://www.1fin.cz".to_string(),
+            ]
+        );
+    }
+
+    #[test]
+    fn allowed_origins_parser_handles_whole_list_wrapped_in_quotes() {
+        assert_eq!(
+            parse_allowed_origins(r#""https://jiribarta.github.io,https://www.1fin.cz""#),
+            vec![
+                "https://jiribarta.github.io".to_string(),
+                "https://www.1fin.cz".to_string(),
+            ]
+        );
+    }
+
+    #[test]
+    fn clean_secret_value_trims_whitespace_quotes_and_angle_brackets() {
+        assert_eq!(clean_secret_value("  \"re_123\"  "), "re_123");
+        assert_eq!(clean_secret_value("  <re_123>  "), "re_123");
+    }
+
+    #[test]
+    fn clean_secret_value_can_be_empty_after_trimming() {
+        assert_eq!(clean_secret_value("  \"\"  "), "");
+        assert_eq!(clean_secret_value("  <>  "), "");
     }
 }
