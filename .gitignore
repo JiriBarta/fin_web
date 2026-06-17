@@ -1,0 +1,11 @@
+# Ignore local environment secrets
+.env
+.dev.vars
+backend/contact-worker/.env
+backend/contact-worker/.dev.vars
+
+# Rust build artifacts
+backend/contact-worker/target
+
+# Wrangler generated artifacts
+backend/contact-worker/.wrangler

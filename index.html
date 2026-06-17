@@ -362,6 +362,137 @@
             </div>
           </div>
         </div>
+
+        <div class="contact-panel">
+          <h3 class="contact-form-heading" data-i18n="contactFormHeading">Nezávazná konzultace</h3>
+
+          <form id="contact-form" class="contact-form" novalidate>
+            <fieldset class="contact-fieldset">
+              <legend class="sr-only" data-i18n="contactFormLegend">Kontaktní údaje</legend>
+
+              <div class="form-row">
+                <label for="first-name" data-i18n="formFirstName">Jméno</label>
+                <input
+                  id="first-name"
+                  name="first_name"
+                  type="text"
+                  autocomplete="given-name"
+                  required
+                  maxlength="100"
+                />
+              </div>
+
+              <div class="form-row">
+                <label for="last-name" data-i18n="formLastName">Příjmení</label>
+                <input
+                  id="last-name"
+                  name="last_name"
+                  type="text"
+                  autocomplete="family-name"
+                  required
+                  maxlength="100"
+                />
+              </div>
+
+              <div class="form-row">
+                <label for="email" data-i18n="formEmail">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                  maxlength="254"
+                />
+              </div>
+
+              <div class="form-row">
+                <label for="phone" data-i18n="formPhone">Telefon</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autocomplete="tel"
+                  required
+                  maxlength="40"
+                />
+              </div>
+
+              <div class="form-row form-row-full">
+                <label for="message" data-i18n="formMessage">Zpráva</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  maxlength="2000"
+                ></textarea>
+              </div>
+            </fieldset>
+
+            <fieldset class="contact-fieldset interests-fieldset">
+              <legend class="contact-legend" data-i18n="contactFormInterestsLegend">Zajímá mě</legend>
+
+              <div class="checkbox-grid">
+                <label>
+                  <input type="checkbox" name="interests" value="travel_insurance" />
+                  <span data-i18n="formInterestTravel">Cestovní pojištění</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="interests" value="property_liability_insurance" />
+                  <span data-i18n="formInterestProperty">Pojištění majetku a odpovědnosti</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="interests" value="business_insurance" />
+                  <span data-i18n="formInterestBusiness">Pojištění podnikatelů a firem</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="interests" value="life_accident_insurance" />
+                  <span data-i18n="formInterestLife">Životní a úrazové pojištění</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="interests" value="investments_dip" />
+                  <span data-i18n="formInterestInvestments">Investice a DIP</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="interests" value="pension_savings" />
+                  <span data-i18n="formInterestPension">Penzijní spoření</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="interests" value="mortgages_housing_finance" />
+                  <span data-i18n="formInterestMortgage">Hypotéky a financování bydlení</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="interests" value="personal_finance_audit" />
+                  <span data-i18n="formInterestAudit">Audit osobních financí</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="interests" value="financial_planning" />
+                  <span data-i18n="formInterestPlanning">Komplexní finanční plánování</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="contact-fieldset consent-fieldset">
+              <legend class="sr-only">Souhlas</legend>
+              <label class="checkbox-label">
+                <input id="consent" name="consent" type="checkbox" required />
+                <span data-i18n="formConsentText">Souhlasím, že výše uvedené údaje budou použity k odpovědi na mou poptávku.</span>
+              </label>
+              <p class="consent-note">
+                <a href="privacy.html" data-i18n="formPrivacyLink">Zásady ochrany osobních údajů</a>
+              </p>
+            </fieldset>
+
+            <input type="hidden" name="form_start_ts" value="" />
+            <label class="sr-only" for="contact-honeypot">Neviditelné pole</label>
+            <input id="contact-honeypot" type="text" name="honeypot" autocomplete="off" class="sr-only" tabindex="-1" />
+
+            <div id="cf-turnstile" class="turnstile-wrapper cf-turnstile" data-sitekey="1x00000000000000000000AA" data-action="contact-form"></div>
+
+            <button type="submit" class="btn btn-primary submit-button" data-i18n="contactFormSubmit">Odeslat poptávku</button>
+            <div id="contact-form-status" class="form-status" aria-live="polite"></div>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -372,6 +503,7 @@
     </div>
   </footer>
 
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script src="js/main.js?v=2"></script>
 </body>
 </html>

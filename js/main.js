@@ -109,6 +109,32 @@ const translations = {
     advisorBenefitLanguages: "Komunikace v češtině i angličtině",
     advisorBenefitIndividual: "Individuální přístup podle situace klienta",
 
+    contactFormHeading: "Nezávazná konzultace",
+    contactFormLegend: "Kontaktní údaje",
+    contactFormInterestsLegend: "Zajímá mě",
+    formFirstName: "Jméno",
+    formLastName: "Příjmení",
+    formEmail: "Email",
+    formPhone: "Telefon",
+    formMessage: "Zpráva",
+    formConsentText: "Souhlasím, že výše uvedené údaje budou použity k odpovědi na mou poptávku.",
+    formPrivacyLink: "Zásady ochrany osobních údajů",
+    formInterestTravel: "Cestovní pojištění",
+    formInterestProperty: "Pojištění majetku a odpovědnosti",
+    formInterestBusiness: "Pojištění podnikatelů a firem",
+    formInterestLife: "Životní a úrazové pojištění",
+    formInterestInvestments: "Investice a DIP",
+    formInterestPension: "Penzijní spoření",
+    formInterestMortgage: "Hypotéky a financování bydlení",
+    formInterestAudit: "Audit osobních financí",
+    formInterestPlanning: "Komplexní finanční plánování",
+    contactFormSubmit: "Odeslat poptávku",
+    formStatusLoading: "Odesílám poptávku...",
+    formSuccess: "Děkujeme, vaše poptávka byla odeslána.",
+    formErrorGeneric: "Něco se nepodařilo. Zkuste to prosím znovu.",
+    formErrorFast: "Odeslání bylo příliš rychlé. Opakujte prosím akci.",
+    formErrorTurnstile: "Ověření Turnstile selhalo. Zkuste prosím znovu.",
+
     footerText: "© 2026 1Fin s.r.o. Všechna práva vyhrazena.",
   },
 
@@ -222,6 +248,32 @@ const translations = {
     advisorBenefitLanguages: "Communication in Czech and English",
     advisorBenefitIndividual: "Individual approach based on the client’s situation",
 
+    contactFormHeading: "Request a consultation",
+    contactFormLegend: "Contact details",
+    contactFormInterestsLegend: "I am interested in",
+    formFirstName: "First name",
+    formLastName: "Last name",
+    formEmail: "Email",
+    formPhone: "Phone",
+    formMessage: "Message",
+    formConsentText: "I consent to using the provided details to respond to my request.",
+    formPrivacyLink: "Privacy policy",
+    formInterestTravel: "Travel insurance",
+    formInterestProperty: "Property and liability insurance",
+    formInterestBusiness: "Business insurance",
+    formInterestLife: "Life and accident insurance",
+    formInterestInvestments: "Investments and DIP",
+    formInterestPension: "Pension savings",
+    formInterestMortgage: "Mortgages and housing finance",
+    formInterestAudit: "Personal finance audit",
+    formInterestPlanning: "Comprehensive financial planning",
+    contactFormSubmit: "Send request",
+    formStatusLoading: "Sending request...",
+    formSuccess: "Thank you, your request has been sent.",
+    formErrorGeneric: "Something went wrong. Please try again.",
+    formErrorFast: "Submission was too fast. Please try again.",
+    formErrorTurnstile: "Turnstile verification failed. Please try again.",
+
     footerText: "© 2026 1Fin s.r.o. All rights reserved.",
   },
 };
@@ -258,6 +310,142 @@ function setLanguage(language) {
   localStorage.setItem("language", language);
 }
 
+const CONTACT_API_URL = ["localhost", "127.0.0.1"].includes(
+  window.location.hostname
+)
+  ? "http://127.0.0.1:8787/"
+  : "https://contact-worker.barta1fin.workers.dev/";
+const TURNSTILE_SITEKEY = "0x4AAAAAADmiTUhAre6BzIh7";
+const MIN_SUBMIT_TIME_MS = 5000;
+let turnstileWidgetId = null;
+
+function mountTurnstile() {
+  const container = document.querySelector("#cf-turnstile");
+  if (!container) {
+    return;
+  }
+
+  if (window.turnstile && turnstileWidgetId === null) {
+    turnstileWidgetId = window.turnstile.render(container, {
+      sitekey: TURNSTILE_SITEKEY,
+      action: "contact-form",
+      size: window.matchMedia("(max-width: 360px)").matches ? "compact" : "normal",
+    });
+    return;
+  }
+
+  setTimeout(mountTurnstile, 100);
+}
+
+function setFormStartTimestamp() {
+  const formStartInput = document.querySelector("[name='form_start_ts']");
+  if (formStartInput) {
+    formStartInput.value = String(Date.now());
+  }
+}
+
+function translationValue(key) {
+  const activeLanguage = document.documentElement.lang || "cs";
+  return translations[activeLanguage]?.[key] || "";
+}
+
+function showFormStatus(message, isError = false) {
+  const status = document.querySelector("#contact-form-status");
+  if (!status) return;
+
+  status.textContent = message;
+  status.classList.toggle("error", isError);
+  status.classList.toggle("success", !isError);
+}
+
+function resetTurnstile() {
+  if (window.turnstile && turnstileWidgetId !== null) {
+    window.turnstile.reset(turnstileWidgetId);
+  }
+}
+
+async function submitContactForm(event) {
+  event.preventDefault();
+
+  const form = document.querySelector("#contact-form");
+  const submitButton = document.querySelector("#contact-form button[type='submit']");
+  if (!form || !submitButton) return;
+
+  showFormStatus(translationValue("formStatusLoading"), false);
+  submitButton.disabled = true;
+  submitButton.setAttribute("aria-busy", "true");
+
+  const formData = new FormData(form);
+  const startValue = Number(formData.get("form_start_ts") || Date.now());
+  if (Date.now() - startValue < MIN_SUBMIT_TIME_MS) {
+    showFormStatus(translationValue("formErrorFast"), true);
+    resetTurnstile();
+    submitButton.disabled = false;
+    submitButton.removeAttribute("aria-busy");
+    return;
+  }
+
+  const token = window.turnstile && turnstileWidgetId !== null ? window.turnstile.getResponse(turnstileWidgetId) : "";
+  if (!token) {
+    showFormStatus(translationValue("formErrorTurnstile"), true);
+    submitButton.disabled = false;
+    submitButton.removeAttribute("aria-busy");
+    return;
+  }
+
+  const interests = Array.from(form.querySelectorAll("input[name='interests']:checked"), (input) => input.value);
+
+  const payload = {
+    first_name: String(formData.get("first_name") || "").trim(),
+    last_name: String(formData.get("last_name") || "").trim(),
+    email: String(formData.get("email") || "").trim(),
+    phone: String(formData.get("phone") || "").trim(),
+    message: String(formData.get("message") || "").trim(),
+    interests,
+    consent: formData.get("consent") === "on" || formData.get("consent") === "true",
+    form_start_ts: String(formData.get("form_start_ts") || Date.now()),
+    honeypot: String(formData.get("honeypot") || "").trim(),
+    turnstile_token: token,
+  };
+
+  try {
+    const response = await fetch(CONTACT_API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      showFormStatus(translationValue("formErrorGeneric"), true);
+      resetTurnstile();
+      submitButton.disabled = false;
+      submitButton.removeAttribute("aria-busy");
+      return;
+    }
+
+    showFormStatus(translationValue("formSuccess"), false);
+    form.reset();
+    setFormStartTimestamp();
+    resetTurnstile();
+  } catch (error) {
+    showFormStatus(translationValue("formErrorGeneric"), true);
+    resetTurnstile();
+  } finally {
+    submitButton.disabled = false;
+    submitButton.removeAttribute("aria-busy");
+  }
+}
+
+function initContactForm() {
+  const form = document.querySelector("#contact-form");
+  if (!form) return;
+
+  setFormStartTimestamp();
+  form.addEventListener("submit", submitContactForm);
+}
+
 if (languageSelect) {
   const savedLanguage = localStorage.getItem("language") || "cs";
 
@@ -267,3 +455,6 @@ if (languageSelect) {
     setLanguage(this.value);
   });
 }
+
+mountTurnstile();
+initContactForm();

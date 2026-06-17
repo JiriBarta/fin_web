@@ -1,0 +1,17 @@
+[package]
+name = "contact-worker"
+version = "0.1.0"
+edition = "2021"
+authors = ["Jiří Bárta <jiribarta13@seznam.cz>"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+worker = { version = "0.8", features = ['http', 'axum'] }
+worker-macros = { version = "0.8", features = ['http'] }
+axum = { version = "0.8", default-features = false }
+tower-service = "0.3.3"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+url = "2"

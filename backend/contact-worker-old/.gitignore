@@ -1,0 +1,10 @@
+# Local development files
+.env
+.dev.vars
+
+# Rust build artifacts
+/target
+/build
+
+# Wrangler generated artifacts
+/.wrangler

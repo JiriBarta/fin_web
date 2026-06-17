@@ -1,0 +1,9 @@
+name = "contact-worker"
+main = "build/worker/shim.mjs"
+compatibility_date = "2026-06-16"
+
+[build]
+command = "worker-build --release"
+
+[vars]
+ENVIRONMENT = "development"
