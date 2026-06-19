@@ -3,6 +3,9 @@ const translations = {
     pageTitle: "1Fin s.r.o. | Finanční a pojišťovací poradenství",
     metaDescription:
       "1Fin s.r.o. – váš dlouhodobý partner v oblasti financí, pojištění a osobního finančního plánování.",
+    privacyPageTitle: "Ochrana osobních údajů | 1Fin s.r.o.",
+    privacyMetaDescription:
+      "Informace o zpracování osobních údajů při použití kontaktního formuláře 1Fin s.r.o.",
 
     navAbout: "O nás",
     navServices: "Služby",
@@ -135,6 +138,62 @@ const translations = {
     formErrorFast: "Odeslání bylo příliš rychlé. Opakujte prosím akci.",
     formErrorTurnstile: "Ověření Turnstile selhalo. Zkuste prosím znovu.",
 
+    privacyLabel: "Ochrana osobních údajů",
+    privacyTitle: "Zásady ochrany osobních údajů",
+    privacyIntro:
+      "Tyto zásady vysvětlují, jak 1Fin s.r.o. zpracovává osobní údaje odeslané prostřednictvím kontaktního formuláře na tomto webu.",
+    privacyBackButton: "Zpět na hlavní stránku",
+    privacyControllerTitle: "1. Správce a kontaktní údaje",
+    privacyControllerText:
+      "Správcem osobních údajů je 1Fin s.r.o., IČO 07174667, se sídlem Chodská 1331/32, Vinohrady, 120 00 Praha 2, Česká republika. Kontaktní osobou je Mgr. Antonín Hamřík.",
+    privacyContactEmailLabel: "Kontakt pro ochranu osobních údajů:",
+    privacyDataTitle: "2. Jaké osobní údaje z kontaktního formuláře zpracováváme",
+    privacyDataFirstName: "jméno",
+    privacyDataLastName: "příjmení",
+    privacyDataEmail: "emailovou adresu",
+    privacyDataPhone: "telefonní číslo",
+    privacyDataMessage: "zprávu",
+    privacyDataInterests: "vybrané oblasti zájmu",
+    privacyDataTechnical:
+      "základní technické a bezpečnostní informace potřebné pro ochranu proti spamu a doručení formuláře",
+    privacyPurposeTitle: "3. Účel zpracování",
+    privacyPurposeReply: "odpověď na odeslanou poptávku",
+    privacyPurposeCommunication: "související komunikace",
+    privacyPurposeConsultation: "sjednání požadované konzultace nebo služby",
+    privacyLegalTitle: "4. Právní základ",
+    privacyLegalText:
+      "Zpracování je nezbytné pro provedení opatření přijatých na vaši žádost před uzavřením smlouvy. Tam, kde je to relevantní, může být právním základem také oprávněný zájem správce na vyřízení a evidenci poptávek.",
+    privacyRetentionTitle: "5. Doba uchování",
+    privacyRetentionText:
+      "Údaje uchováváme nejdéle po dobu 12 měsíců od odeslání formuláře, pokud delší uchování nevyžaduje právní předpis nebo pokud komunikace nevede ke smluvnímu vztahu.",
+    privacyRecipientsTitle: "6. Příjemci a zpracovatelé",
+    privacyRecipientCloudflare:
+      "Cloudflare, používaný pro hosting Workeru a spamovou ochranu Turnstile",
+    privacyRecipientResend: "Resend, používaný pro doručování emailů",
+    privacyRecipientProviders:
+      "hostingoví a techničtí poskytovatelé služeb, pokud je to nezbytné",
+    privacyTransferTitle: "7. Možné zpracování nebo předání mimo EHP",
+    privacyTransferText:
+      "Někteří poskytovatelé služeb mohou zpracovávat osobní údaje mimo Evropský hospodářský prostor. Pokud je to vyžadováno, jsou použity vhodné záruky, například příslušné mechanismy rozhodnutí o odpovídající ochraně nebo standardní smluvní doložky.",
+    privacyRightsTitle: "8. Práva subjektu údajů",
+    privacyRightsIntro: "V souvislosti se zpracováním osobních údajů máte zejména právo na:",
+    privacyRightAccess: "přístup k osobním údajům",
+    privacyRightRectification: "opravu nepřesných údajů",
+    privacyRightErasure: "výmaz údajů",
+    privacyRightRestriction: "omezení zpracování",
+    privacyRightObjection: "námitku, pokud je použitelná",
+    privacyRightPortability: "přenositelnost údajů, pokud je použitelná",
+    privacyRightComplaint: "podání stížnosti u Úřadu pro ochranu osobních údajů",
+    privacyMandatoryTitle: "9. Povinnost poskytnutí údajů",
+    privacyMandatoryText:
+      "Pole označená jako povinná jsou nezbytná pro odpověď na vaši poptávku. Bez jejich vyplnění nemusí být možné poptávku zpracovat.",
+    privacyAutomatedTitle: "10. Automatizované rozhodování",
+    privacyAutomatedText:
+      "Při zpracování osobních údajů nedochází k automatizovanému rozhodování ani profilování.",
+    privacyUpdatedTitle: "11. Účinnost a poslední aktualizace",
+    privacyUpdatedText: "Tyto zásady jsou účinné a naposledy aktualizované dne",
+    privacyUpdatedDate: "19. 6. 2026",
+
     footerText: "© 2026 1Fin s.r.o. Všechna práva vyhrazena.",
   },
 
@@ -142,6 +201,9 @@ const translations = {
     pageTitle: "1Fin s.r.o. | Financial and Insurance Advisory",
     metaDescription:
       "1Fin s.r.o. – your long-term partner in finance, insurance and personal financial planning.",
+    privacyPageTitle: "Privacy Policy | 1Fin s.r.o.",
+    privacyMetaDescription:
+      "Information about personal data processing when using the 1Fin s.r.o. contact form.",
 
     navAbout: "About",
     navServices: "Services",
@@ -257,7 +319,7 @@ const translations = {
     formPhone: "Phone",
     formMessage: "Message",
     formConsentText: "I consent to using the provided details to respond to my request.",
-    formPrivacyLink: "Privacy policy",
+    formPrivacyLink: "Privacy Policy",
     formInterestTravel: "Travel insurance",
     formInterestProperty: "Property and liability insurance",
     formInterestBusiness: "Business insurance",
@@ -274,6 +336,63 @@ const translations = {
     formErrorFast: "Submission was too fast. Please try again.",
     formErrorTurnstile: "Turnstile verification failed. Please try again.",
 
+    privacyLabel: "Privacy Policy",
+    privacyTitle: "Privacy Policy",
+    privacyIntro:
+      "This policy explains how 1Fin s.r.o. processes personal data submitted through the contact form on this website.",
+    privacyBackButton: "Back to main page",
+    privacyControllerTitle: "1. Controller identity and contact details",
+    privacyControllerText:
+      "The controller of personal data is 1Fin s.r.o., Company ID 07174667, with registered office at Chodská 1331/32, Vinohrady, 120 00 Prague 2, Czech Republic. The contact person is Mgr. Antonín Hamřík.",
+    privacyContactEmailLabel: "Privacy contact:",
+    privacyDataTitle: "2. Personal data collected through the contact form",
+    privacyDataFirstName: "first name",
+    privacyDataLastName: "surname",
+    privacyDataEmail: "email address",
+    privacyDataPhone: "telephone number",
+    privacyDataMessage: "message",
+    privacyDataInterests: "selected areas of interest",
+    privacyDataTechnical:
+      "basic technical and security information needed for spam protection and form delivery",
+    privacyPurposeTitle: "3. Purpose of processing",
+    privacyPurposeReply: "responding to the submitted enquiry",
+    privacyPurposeCommunication: "related communication",
+    privacyPurposeConsultation: "arranging the requested consultation or service",
+    privacyLegalTitle: "4. Legal basis",
+    privacyLegalText:
+      "Processing is necessary to take steps at your request before entering into a contract. Where applicable, the legal basis may also be the controller's legitimate interest in handling and documenting enquiries.",
+    privacyRetentionTitle: "5. Retention period",
+    privacyRetentionText:
+      "Data is retained for no longer than 12 months from submission, unless a longer period is required by law or the communication leads to a contractual relationship.",
+    privacyRecipientsTitle: "6. Recipients and processors",
+    privacyRecipientCloudflare:
+      "Cloudflare, used for Worker hosting and Turnstile spam protection",
+    privacyRecipientResend: "Resend, used for email delivery",
+    privacyRecipientProviders:
+      "hosting and technical service providers where necessary",
+    privacyTransferTitle: "7. Possible processing or transfer outside the EEA",
+    privacyTransferText:
+      "Some service providers may process personal data outside the European Economic Area. Where required, appropriate safeguards are used, such as applicable adequacy mechanisms or standard contractual clauses.",
+    privacyRightsTitle: "8. Data-subject rights",
+    privacyRightsIntro: "In connection with personal data processing, you have in particular the right to:",
+    privacyRightAccess: "access your personal data",
+    privacyRightRectification: "rectification of inaccurate data",
+    privacyRightErasure: "erasure of data",
+    privacyRightRestriction: "restriction of processing",
+    privacyRightObjection: "object where applicable",
+    privacyRightPortability: "data portability where applicable",
+    privacyRightComplaint:
+      "lodge a complaint with the Czech Office for Personal Data Protection",
+    privacyMandatoryTitle: "9. Whether providing data is mandatory",
+    privacyMandatoryText:
+      "Fields marked as required are necessary to answer the enquiry. Without them, the enquiry may not be processed.",
+    privacyAutomatedTitle: "10. Automated decision-making",
+    privacyAutomatedText:
+      "No automated decision-making or profiling is performed when processing personal data.",
+    privacyUpdatedTitle: "11. Effective date and last updated date",
+    privacyUpdatedText: "This policy is effective and was last updated on",
+    privacyUpdatedDate: "19 June 2026",
+
     footerText: "© 2026 1Fin s.r.o. All rights reserved.",
   },
 };
@@ -288,11 +407,19 @@ function setLanguage(language) {
   }
 
   document.documentElement.lang = language;
-  document.title = selectedTranslations.pageTitle;
+  const pageName = document.body?.dataset.page || "home";
+  const titleKey = pageName === "privacy" ? "privacyPageTitle" : "pageTitle";
+  const descriptionKey =
+    pageName === "privacy" ? "privacyMetaDescription" : "metaDescription";
+
+  document.title = selectedTranslations[titleKey] || selectedTranslations.pageTitle;
 
   const metaDescription = document.querySelector('meta[name="description"]');
   if (metaDescription) {
-    metaDescription.setAttribute("content", selectedTranslations.metaDescription);
+    metaDescription.setAttribute(
+      "content",
+      selectedTranslations[descriptionKey] || selectedTranslations.metaDescription
+    );
   }
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {

@@ -3,16 +3,192 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Ochrana osobních údajů | 1Fin s.r.o.</title>
+  <meta
+    name="description"
+    content="Informace o zpracování osobních údajů při použití kontaktního formuláře 1Fin s.r.o."
+  />
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-  <main class="section section-muted">
-    <div class="container">
-      <h1>Ochrana osobních údajů</h1>
-      <p>Tato stránka slouží jako placeholder pro zásady ochrany osobních údajů. V případě potřeby sem doplňte podrobné informace o zpracování dat.</p>
-      <p><a href="index.html">Zpět na domovskou stránku</a></p>
+<body data-page="privacy">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="1Fin s.r.o.">
+        <span class="brand-mark">1F</span>
+        <span class="brand-text">1Fin s.r.o.</span>
+      </a>
+
+      <nav class="nav" aria-label="Hlavní navigace">
+        <a href="index.html#about" data-i18n="navAbout">O nás</a>
+        <a href="index.html#services" data-i18n="navServices">Služby</a>
+        <a href="index.html#price" data-i18n="navPrice">Cena</a>
+        <a href="index.html#contact" data-i18n="navContact">Kontakt</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="language-select-wrap">
+          <label for="language-select" data-i18n="languageLabel">Jazyk:</label>
+
+          <select id="language-select" class="language-select">
+            <option value="cs">🇨🇿 Čeština</option>
+            <option value="en">🇬🇧 English</option>
+          </select>
+        </div>
+
+        <a
+          href="https://pojisteni.1fin.cz/"
+          class="btn btn-small btn-primary"
+          target="_blank"
+          rel="noopener"
+          data-i18n="formShort"
+        >
+          Formulář
+        </a>
+      </div>
     </div>
+  </header>
+
+  <main>
+    <section class="section section-muted privacy-hero">
+      <div class="container privacy-intro">
+        <p class="section-label" data-i18n="privacyLabel">Ochrana osobních údajů</p>
+        <h1 data-i18n="privacyTitle">Zásady ochrany osobních údajů</h1>
+        <p data-i18n="privacyIntro">
+          Tyto zásady vysvětlují, jak 1Fin s.r.o. zpracovává osobní údaje
+          odeslané prostřednictvím kontaktního formuláře na tomto webu.
+        </p>
+        <a href="index.html#contact" class="btn btn-primary" data-i18n="privacyBackButton">
+          Zpět na hlavní stránku
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container privacy-layout">
+        <article class="privacy-panel">
+          <section class="privacy-section" aria-labelledby="controller-heading">
+            <h2 id="controller-heading" data-i18n="privacyControllerTitle">1. Správce a kontaktní údaje</h2>
+            <p data-i18n="privacyControllerText">
+              Správcem osobních údajů je 1Fin s.r.o., IČO 07174667, se sídlem
+              Chodská 1331/32, Vinohrady, 120 00 Praha 2, Česká republika.
+              Kontaktní osobou je Mgr. Antonín Hamřík.
+            </p>
+            <p>
+              <span data-i18n="privacyContactEmailLabel">Kontakt pro ochranu osobních údajů:</span>
+              <a href="mailto:antonin.hamrik@gmail.com">antonin.hamrik@gmail.com</a>
+            </p>
+          </section>
+
+          <section class="privacy-section" aria-labelledby="data-heading">
+            <h2 id="data-heading" data-i18n="privacyDataTitle">2. Jaké osobní údaje z kontaktního formuláře zpracováváme</h2>
+            <ul>
+              <li data-i18n="privacyDataFirstName">jméno</li>
+              <li data-i18n="privacyDataLastName">příjmení</li>
+              <li data-i18n="privacyDataEmail">emailovou adresu</li>
+              <li data-i18n="privacyDataPhone">telefonní číslo</li>
+              <li data-i18n="privacyDataMessage">zprávu</li>
+              <li data-i18n="privacyDataInterests">vybrané oblasti zájmu</li>
+              <li data-i18n="privacyDataTechnical">základní technické a bezpečnostní informace potřebné pro ochranu proti spamu a doručení formuláře</li>
+            </ul>
+          </section>
+
+          <section class="privacy-section" aria-labelledby="purpose-heading">
+            <h2 id="purpose-heading" data-i18n="privacyPurposeTitle">3. Účel zpracování</h2>
+            <ul>
+              <li data-i18n="privacyPurposeReply">odpověď na odeslanou poptávku</li>
+              <li data-i18n="privacyPurposeCommunication">související komunikace</li>
+              <li data-i18n="privacyPurposeConsultation">sjednání požadované konzultace nebo služby</li>
+            </ul>
+          </section>
+
+          <section class="privacy-section" aria-labelledby="legal-heading">
+            <h2 id="legal-heading" data-i18n="privacyLegalTitle">4. Právní základ</h2>
+            <p data-i18n="privacyLegalText">
+              Zpracování je nezbytné pro provedení opatření přijatých na vaši
+              žádost před uzavřením smlouvy. Tam, kde je to relevantní, může
+              být právním základem také oprávněný zájem správce na vyřízení a
+              evidenci poptávek.
+            </p>
+          </section>
+
+          <section class="privacy-section" aria-labelledby="retention-heading">
+            <h2 id="retention-heading" data-i18n="privacyRetentionTitle">5. Doba uchování</h2>
+            <p data-i18n="privacyRetentionText">
+              Údaje uchováváme nejdéle po dobu 12 měsíců od odeslání
+              formuláře, pokud delší uchování nevyžaduje právní předpis nebo
+              pokud komunikace nevede ke smluvnímu vztahu.
+            </p>
+          </section>
+
+          <section class="privacy-section" aria-labelledby="recipients-heading">
+            <h2 id="recipients-heading" data-i18n="privacyRecipientsTitle">6. Příjemci a zpracovatelé</h2>
+            <ul>
+              <li data-i18n="privacyRecipientCloudflare">Cloudflare, používaný pro hosting Workeru a spamovou ochranu Turnstile</li>
+              <li data-i18n="privacyRecipientResend">Resend, používaný pro doručování emailů</li>
+              <li data-i18n="privacyRecipientProviders">hostingoví a techničtí poskytovatelé služeb, pokud je to nezbytné</li>
+            </ul>
+          </section>
+
+          <section class="privacy-section" aria-labelledby="transfer-heading">
+            <h2 id="transfer-heading" data-i18n="privacyTransferTitle">7. Možné zpracování nebo předání mimo EHP</h2>
+            <p data-i18n="privacyTransferText">
+              Někteří poskytovatelé služeb mohou zpracovávat osobní údaje mimo
+              Evropský hospodářský prostor. Pokud je to vyžadováno, jsou
+              použity vhodné záruky, například příslušné mechanismy rozhodnutí
+              o odpovídající ochraně nebo standardní smluvní doložky.
+            </p>
+          </section>
+
+          <section class="privacy-section" aria-labelledby="rights-heading">
+            <h2 id="rights-heading" data-i18n="privacyRightsTitle">8. Práva subjektu údajů</h2>
+            <p data-i18n="privacyRightsIntro">V souvislosti se zpracováním osobních údajů máte zejména právo na:</p>
+            <ul>
+              <li data-i18n="privacyRightAccess">přístup k osobním údajům</li>
+              <li data-i18n="privacyRightRectification">opravu nepřesných údajů</li>
+              <li data-i18n="privacyRightErasure">výmaz údajů</li>
+              <li data-i18n="privacyRightRestriction">omezení zpracování</li>
+              <li data-i18n="privacyRightObjection">námitku, pokud je použitelná</li>
+              <li data-i18n="privacyRightPortability">přenositelnost údajů, pokud je použitelná</li>
+              <li data-i18n="privacyRightComplaint">podání stížnosti u Úřadu pro ochranu osobních údajů</li>
+            </ul>
+          </section>
+
+          <section class="privacy-section" aria-labelledby="mandatory-heading">
+            <h2 id="mandatory-heading" data-i18n="privacyMandatoryTitle">9. Povinnost poskytnutí údajů</h2>
+            <p data-i18n="privacyMandatoryText">
+              Pole označená jako povinná jsou nezbytná pro odpověď na vaši
+              poptávku. Bez jejich vyplnění nemusí být možné poptávku zpracovat.
+            </p>
+          </section>
+
+          <section class="privacy-section" aria-labelledby="automated-heading">
+            <h2 id="automated-heading" data-i18n="privacyAutomatedTitle">10. Automatizované rozhodování</h2>
+            <p data-i18n="privacyAutomatedText">
+              Při zpracování osobních údajů nedochází k automatizovanému
+              rozhodování ani profilování.
+            </p>
+          </section>
+
+          <section class="privacy-section" aria-labelledby="updated-heading">
+            <h2 id="updated-heading" data-i18n="privacyUpdatedTitle">11. Účinnost a poslední aktualizace</h2>
+            <p>
+              <span data-i18n="privacyUpdatedText">Tyto zásady jsou účinné a naposledy aktualizované dne</span>
+              <time datetime="2026-06-19" data-i18n="privacyUpdatedDate">19. 6. 2026</time>.
+            </p>
+          </section>
+        </article>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footerText">© 2026 1Fin s.r.o. Všechna práva vyhrazena.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>
